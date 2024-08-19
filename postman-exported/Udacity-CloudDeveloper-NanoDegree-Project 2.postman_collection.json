@@ -89,7 +89,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoYW5ncW5AZW1haWwuY29tIiwidG9rZW5UeXBlIjoiQUNDRVNTX1RPS0VOIiwiaWF0IjoxNzI0MDg1NTE1LCJleHAiOjE3MjQxNzE5MTV9.mO7d6-EWSmpshVPlJl33yqHX9u36YSSn6-jzdr85SKtVn2fOkJDqhI_i05UxZGbEwiG0bIHvSonp5skhf1dQQYlF8S5meR66KSnwBmkqyPt0jd51jpt6fD43-neE3L4PswJXRXtjvedTwRzuXP5muEibENwGeQqR7JwXBG0tG_bGkEbH4j7BpFItu53MFoNPG44l9wFm_hMuQ2f0DhayG3jPNaCeRo4iwjCihnw3msVvzj130Z7RHSyZ_CeJusxej2JvOb9QbzgdCgmISCtfDoSRu6_rPh99ARMFn6JNtBzbUVMLfDyaLZ4Hreu4QY0kPOBkV-lGYOOsxckXg50cczJ3LJKx0owd6mrbHcjm2rqEjszxdQILcGUVteBn4hG4d45x8chEqdzV_iHEyVs2Ex1rgij73X574g2-A3SEOSqIHk95pI4267pnrwkBDwzGnWgCuPkbZNCG9979FMe2v1A_lL6akWUCKRtW2fchrcwHT59rRvuwm3Stm08RjgYmHD077omT2OeM6kfOmbmRR9_I1wOrW1CtscQrvDRy7rVo0IlNzOUTD1fG4NSIgjhiENSwrAYgRKwHrpoyvBQdf3f3AMMIwKLUAJlI7iR0qryMv_FPCp-mWH4aqJKgZ-suN3NCpaXc0emUkrYqlJVh0PaNSTB5hezP4ebQEldR8Ao",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoYW5ncW5AZW1haWwuY29tIiwidG9rZW5UeXBlIjoiQUNDRVNTX1RPS0VOIiwiaWF0IjoxNzI0MDkyMjY3LCJleHAiOjE3MjQxNzg2Njd9.p-ZWqsnZrIRnevpCrqGlNnUDzdC3s0omqjXcKxqVzV83q1C9rJBtv2DfWDmtBljm4kfXNQTfvKbJ7VVggFMArJlf15QMymwTleU0SOCbrJr5jwBvUiIaKH9NA-L88Qz3Az_9-YxygK82wgTClRRP1j8dkGAzdx9XVsfVUAxXhjoPV-aksIWn9t32FuHn5H5ktcyfXox2VQjzlN79oz08bP5V1kCV0lOv3dd8F5Qo-zdF89ohyuh8opP_0hzYELlsz5nxOkPP1B7kZ44P-T1E-2a1IE_4dPrBmGK7kVZp2ZZ10ItQ79OgQnucy7wOeOhMDqiqli3awftb9VBvCUrP7yO1jyYzwUSSAb5I7CQPinNV6TfN5aaukP6YvHgbh1x5sR7T4l0X290wXPXMTvNPXkus4Foxr3YarXcnBtv53QkB-W12r9xy-EAxbXMXrR83CYPVIbFWuyguF58mlW9Zw58O0oIUmfVAQ9fTPWyamZGjZxwA-xbfhyjsuZIrERgYXzEzSdJkIU1xfUV_RDEtiJsqYB-eP1XuoBA4gXKS-NKbcAhsjDKoCDKbo7UyPMCnJ88As7x2EZfxzxRvSNlRaMCfVpJj-ie9pnKLaC0pqMO3gcEbcSjy5mAxelGBeeIuQxpuMkbSgfPLnWDqb0P0vpRttq8URxGKTy_Z_uhPypU",
 							"type": "string"
 						}
 					]
@@ -105,6 +105,34 @@
 						"elasticbeanstalk",
 						"com"
 					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Local - Filtered Image",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
 					"path": [
 						"filteredimage"
 					],
