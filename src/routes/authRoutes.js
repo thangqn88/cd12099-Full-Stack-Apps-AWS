@@ -1,7 +1,7 @@
 import express from "express";
-import passwordService from "../service/passwordService.js";
-import tokenService from "../service/tokenService.js";
-import userService from "../service/userService.js";
+import passwordService from "../../src/service/passwordService.js";
+import tokenService from "../../src/service/tokenService.js";
+import userService from "../../src/service/userService.js";
 
 export const router = express.Router();
 
