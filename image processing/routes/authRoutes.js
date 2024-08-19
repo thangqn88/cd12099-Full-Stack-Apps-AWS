@@ -31,7 +31,7 @@ router.post("/refresh", async (req, res) => {
     if (!user) {
       return res.status(401).json({ message: "Unauthorized" });
     }
-    const { accessToken, refreshToken: newRefreshToken } = tokenService.generateTokens(user);
+    const { accessToken, refreshToken: newRefreshToken } = await tokenService.generateTokens(user);
     return res.json({ access_token: accessToken, refresh_token: newRefreshToken, token_type: "bearer" });
   } catch(error){
     console.error("Refresh token error", error)

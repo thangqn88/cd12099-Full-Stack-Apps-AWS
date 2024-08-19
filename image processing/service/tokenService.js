@@ -10,7 +10,7 @@ class TokenService {
         tokenType: 'ACCESS_TOKEN',
       },
       PRIVATE_KEY,
-      { expiresIn: process.env.ACCESS_TOKEN_EXPIRY, algorithm: "RS256" }
+      { expiresIn: Number(process.env.ACCESS_TOKEN_EXPIRY), algorithm: "RS256" }
     );
     const refreshToken = jwt.sign(
       {
@@ -18,7 +18,7 @@ class TokenService {
         tokenType: 'REFRESH_TOKEN',
       },
       PRIVATE_KEY,
-      { expiresIn: process.env.REFRESH_TOKEN_EXPIRY, algorithm: "RS256" }
+      { expiresIn: Number(process.env.REFRESH_TOKEN_EXPIRY), algorithm: "RS256" }
     );
     return { accessToken, refreshToken };
   }

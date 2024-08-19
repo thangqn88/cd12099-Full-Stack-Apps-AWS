@@ -32,7 +32,7 @@ app.use(bodyParser.json());
 /**************************************************************************** */
 app.use("/auth", authRoutes)
 
-app.get("/filteredimage", requiresAuth(), async (req, res) => {
+app.get("/filteredimage", requiresAuth(), async (req, res, next) => {
   let { image_url } = req.query;
   if (!image_url) {
     return res.status(400).send("invalide image_url parameter, please try again");
