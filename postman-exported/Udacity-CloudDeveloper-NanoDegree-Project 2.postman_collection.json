@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "0834e625-9b0b-44a5-9eb0-5bc497e84a6e",
+		"name": "Udacity-CloudDeveloper-NanoDegree-Project 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "71797",
+		"_collection_link": "https://grey-space-186888.postman.co/workspace/Udacity-CloudDeveloper~2ec2dad2-c4c2-4715-9b8e-b9995eb1c22e/collection/71797-0834e625-9b0b-44a5-9eb0-5bc497e84a6e?action=share&source=collection_link&creator=71797"
+	},
+	"item": [
+		{
+			"name": "AWS - auth/token",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"thangqn@email.com\",\r\n    \"password\":\"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://image-process-dev.us-east-1.elasticbeanstalk.com/auth/token",
+					"protocol": "http",
+					"host": [
+						"image-process-dev",
+						"us-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"auth",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AWS - auth/refresh",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoYW5ncW5AZW1haWwuY29tIiwidG9rZW5UeXBlIjoiUkVGUkVTSF9UT0tFTiIsImlhdCI6MTcyNDA4NTUxNSwiZXhwIjoxNzI0MTcxOTE1fQ.EjiIeh7yj2CU6ZRo9DPERsjbAj-VUuW76FiLeE1kd5ZK3zjN_D2zjM2tr6XIJPAZjKtE9Nd8Pv_JlPrDmbHl_Jc7Yd54R9izvk4YqizbhF97h4xtX7Nk4KGAfRs-UICMNx_4yO2-MA2Q83g7FERYJkM7WZDDWVX94EcR_ZyrbVTqKVlMjF4N_-9q_1vedRtYBzn-Pnedaalvjax0kUoRObvQGKcE35HQOD37i_Bx9GfEATX9ym7J3e6mlgHrtA5BWMaFkYtox9mPvgzCBr-K280tqZtie4v8Qkhnj_0Qp7-YRe45A_kfLFge61hIL4tHFY0KR3ITBuNVh5tRraZ-IffbHBS07hA8H1HzXzfWJbNlQVtvU4uJptu7wU4Xx9Kg6bSobp2VlVg9J2RQtpikr9OVkQ46TCXPwsQ0NnHgvTumbBRJCZVh0m0W6cpDkUhzxlxqx0n6tDaj1YK8JgP_MkDK1zemVEPI6_O1BYDq10p-1wAGeYRarHxZI7Fln0Lnf4fxwEp3h2J1nMmWbTMEx98Etujq79xLOxbey4vLPqeOuGAgzUQqz8735mV396AZmi4Rh15qHYBfc-6_vxKbCwhvU7aSOlWr435bEXFbQFH6LnZcnSJhAh1_DYaAOq2fy2_9wDqMyUcCqj6hrZ0Yo6alHIgxN3i5rDHMZUUGG2c\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://image-process-dev.us-east-1.elasticbeanstalk.com/auth/refresh",
+					"protocol": "http",
+					"host": [
+						"image-process-dev",
+						"us-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"auth",
+						"refresh"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AWS - Filtered Image",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InRoYW5ncW5AZW1haWwuY29tIiwidG9rZW5UeXBlIjoiQUNDRVNTX1RPS0VOIiwiaWF0IjoxNzI0MDg1NTE1LCJleHAiOjE3MjQxNzE5MTV9.mO7d6-EWSmpshVPlJl33yqHX9u36YSSn6-jzdr85SKtVn2fOkJDqhI_i05UxZGbEwiG0bIHvSonp5skhf1dQQYlF8S5meR66KSnwBmkqyPt0jd51jpt6fD43-neE3L4PswJXRXtjvedTwRzuXP5muEibENwGeQqR7JwXBG0tG_bGkEbH4j7BpFItu53MFoNPG44l9wFm_hMuQ2f0DhayG3jPNaCeRo4iwjCihnw3msVvzj130Z7RHSyZ_CeJusxej2JvOb9QbzgdCgmISCtfDoSRu6_rPh99ARMFn6JNtBzbUVMLfDyaLZ4Hreu4QY0kPOBkV-lGYOOsxckXg50cczJ3LJKx0owd6mrbHcjm2rqEjszxdQILcGUVteBn4hG4d45x8chEqdzV_iHEyVs2Ex1rgij73X574g2-A3SEOSqIHk95pI4267pnrwkBDwzGnWgCuPkbZNCG9979FMe2v1A_lL6akWUCKRtW2fchrcwHT59rRvuwm3Stm08RjgYmHD077omT2OeM6kfOmbmRR9_I1wOrW1CtscQrvDRy7rVo0IlNzOUTD1fG4NSIgjhiENSwrAYgRKwHrpoyvBQdf3f3AMMIwKLUAJlI7iR0qryMv_FPCp-mWH4aqJKgZ-suN3NCpaXc0emUkrYqlJVh0PaNSTB5hezP4ebQEldR8Ao",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://image-process-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg",
+					"protocol": "http",
+					"host": [
+						"image-process-dev",
+						"us-east-1",
+						"elasticbeanstalk",
+						"com"
+					],
+					"path": [
+						"filteredimage"
+					],
+					"query": [
+						{
+							"key": "image_url",
+							"value": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Golden_tabby_and_white_kitten_n01.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

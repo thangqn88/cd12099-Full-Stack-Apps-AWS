@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import { filterImageFromURL, deleteLocalFiles } from './util/util.js';
 import { router as authRoutes } from './routes/authRoutes.js';
+import AWSXRay from 'aws-xray-sdk'
 import { requiresAuth } from './middleware/requiresAuthMiddleware.js';
 import errorHandler from "./middleware/errorHandler.js";
 
@@ -10,11 +11,11 @@ import errorHandler from "./middleware/errorHandler.js";
 const app = express();
 
 // Set the network port
-const port = process.env.PORT || 8082;
+const port = process.env.PORT || 8080;
 
 // Use the body parser middleware for post requests
 app.use(bodyParser.json());
-
+app.use(AWSXRay.express.openSegment('image-app'));
 // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
 // GET /filteredimage?image_url={{URL}}
 // endpoint to filter an image from a public url.
@@ -43,6 +44,7 @@ app.get("/filteredimage", requiresAuth(), async (req, res, next) => {
       await deleteLocalFiles([filteredpath]);
     });
   } catch (error) {
+    error.statusCode = 422;
     error.message = "An unexpected error occurred at: " + error.methodName + " with message: " + error.message;
     return next(error);
   }
@@ -59,6 +61,7 @@ app.get("/", async (req, res) => {
 
 app.use(errorHandler)
 
+app.use(AWSXRay.express.closeSegment());
 // Start the Server
 app.listen(port, () => {
   console.log(`server running http://localhost:${port}`);
